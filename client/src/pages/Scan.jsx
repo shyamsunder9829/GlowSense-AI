@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import ScanningEffect from "../components/ScanningEffect";
+import api from "../api/axios";
 
 export default function Scan() {
   const [imageFile, setImageFile] = useState(null);
@@ -66,11 +67,12 @@ export default function Scan() {
 
       /* -------- SAVE SCAN TO MONGODB -------- */
       try {
-        await axios.post("http://localhost:5000/api/scan/create", {
+        await api.post("/api/scan", {
           image: preview,
           skinType: "Oily",
           products: generatedProducts,
         });
+
       } catch (err) {
         console.error("Scan save failed", err);
       }
@@ -122,7 +124,7 @@ export default function Scan() {
                 alt="Preview"
                 className="rounded-3xl shadow-lg"
               />
-              {loading && <ScanningEffect  />}
+              {loading && <ScanningEffect />}
             </div>
           )}
 

@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import api from "../api/axios";
+
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -11,7 +13,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // 🔥 THIS FIXES SCROLL ISSUE
 
-    await axios.post("http://localhost:5000/api/contact", form);
+    await api.post("/api/contact", form);
 
     alert("Message sent!");
     setForm({ name: "", email: "", message: "" });
