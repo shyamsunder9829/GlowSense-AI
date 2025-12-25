@@ -13,7 +13,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // 🔥 THIS FIXES SCROLL ISSUE
 
-    await api.post("/api/contact", form);
+    await api.post("https://glowsense-ai.onrender.com/api/contact", form);
 
     alert("Message sent!");
     setForm({ name: "", email: "", message: "" });

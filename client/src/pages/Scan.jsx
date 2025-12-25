@@ -67,7 +67,7 @@ export default function Scan() {
 
       /* -------- SAVE SCAN TO MONGODB -------- */
       try {
-        await api.post("/api/scan", {
+        await api.post("https://glowsense-ai.onrender.com/api/scan", {
           image: preview,
           skinType: "Oily",
           products: generatedProducts,

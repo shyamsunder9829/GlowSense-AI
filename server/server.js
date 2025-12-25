@@ -21,6 +21,10 @@ app.use(express.json({ limit: "10mb" }));
 app.use("/api/contact", contactRoutes);
 app.use("/api/scan", scanRoutes);
 
+app.get("/", (req, res) => {
+  res.send("GlowSense AI Server is running!");
+});
+
 // mongodb connect
 mongoose
   .connect(process.env.MONGO_URI)
