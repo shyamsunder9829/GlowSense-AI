@@ -22,7 +22,7 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/scan", scanRoutes);
 
 app.get("/", (req, res) => {
-  res.send("GlowSense AI Server is running!");
+  res.send("GlowSense AI Server is running!!!");
 });
 
 // mongodb connect
