@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [theme, setTheme] = useState("light");
   const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark");
@@ -15,8 +16,8 @@ export default function App() {
 
   return (
     <>
-      <Navbar theme={theme} setTheme={setTheme} setOpen={setOpen} />
-      <Sidebar open={open} setOpen={setOpen} />
+      <Navbar theme={theme} setTheme={setTheme} setOpen={setIsOpen} />
+      <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} theme={theme} setTheme={setTheme} />
 
       <Home />
       <Scan />
